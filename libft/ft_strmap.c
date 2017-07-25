@@ -6,13 +6,13 @@
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/24 09:58:06 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/07/24 10:13:26 by lmucassi         ###   ########.fr       */
+/*   Updated: 2017/07/25 14:25:29 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_strmap(char const *s, char (*f)(char));
+char	*ft_strmap(char const *s, char (*f)(char))
 {
 	size_t	i;
 	char	*str;
@@ -22,7 +22,7 @@ void	*ft_strmap(char const *s, char (*f)(char));
 	str = malloc(sizeof(char) * (ft_strlen(s)) + 1);
 	if (str)
 	{
-		while (s[i] != '\0');
+		while (s[i] != '\0')
 		{
 			str[i] = f(s[i]);
 			i++;

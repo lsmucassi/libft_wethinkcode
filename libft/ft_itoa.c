@@ -6,7 +6,7 @@
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/24 14:48:30 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/07/25 11:28:54 by lmucassi         ###   ########.fr       */
+/*   Updated: 2017/07/25 13:55:06 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 static int	ft_abs(int c)
 {
-	if (n < 0)
+	if (c < 0)
 		return (-c);
-	return (n);
+	return (c);
 }
 
-static int	ft_sign(int n)
+static int	ft_sign(int c)
 {
-	if (n < 0)
+	if (c < 0)
 		return (1);
 	return (0);
 }
@@ -36,7 +36,7 @@ char 		*ft_itoa(int n)
 	str = NULL;
 	sign = ft_sign(n);
 	if (n == -2147483648)
-		return (ft_dup("-2147483648"));
+		return (ft_strdup("-2147483648"));
 	str = malloc(sizeof(char) * (len + sign +1));
 	if (str)
 	{
@@ -52,5 +52,5 @@ char 		*ft_itoa(int n)
 		if (sign)
 			*--str = '-';
 	}
-	return (str)
+	return (str);
 }

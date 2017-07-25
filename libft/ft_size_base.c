@@ -1,26 +1,27 @@
-/* ************************************************************************** */
-/*                                                                            */
+
 /*                                                        :::      ::::::::   */
-/*   ft_putendl.c                                       :+:      :+:    :+:   */
+/*   ft_size_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/25 11:36:52 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/07/25 14:14:27 by lmucassi         ###   ########.fr       */
+/*   Created: 2017/07/25 13:56:59 by lmucassi          #+#    #+#             */
+/*   Updated: 2017/07/25 13:57:08 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl(char const *s)
+int		ft_size_base(int c, int base)
 {
 	int i;
 
-	i = 0;
-	while (s[i] != '\0')
+	i = 1;
+	if (c < 0)
+		c = -c;
+	while (c >= base)
 	{
-		ft_putchar(s[i]);
+		c /= base;
 		i++;
 	}
-	ft_putchar('\n');
-}	
+	return (i);
+}

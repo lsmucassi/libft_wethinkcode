@@ -6,7 +6,7 @@
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/24 10:36:38 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/07/24 10:49:38 by lmucassi         ###   ########.fr       */
+/*   Updated: 2017/07/25 13:44:12 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ char	*ft_strsub(const char *s, unsigned int start, size_t len)
 	{
 		while (start--)
 			str++;
-		ft_strncopy(str, s, len);
+		ft_strncpy(str, s, len);
 		str[len] = '\0';
 	}
-	return (st);
+	return (str);
 }

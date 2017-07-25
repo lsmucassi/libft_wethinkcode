@@ -6,7 +6,7 @@
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/25 12:02:41 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/07/25 12:04:21 by lmucassi         ###   ########.fr       */
+/*   Updated: 2017/07/25 14:17:38 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,5 @@ void	ft_putendl_fd(char const *s, int fd)
 		ft_putchar_fd(s[i], fd);
 		i++;
 	}
-	s[i] = '\n';
-	ft_putchar_fd(s[i],fd);
+	ft_putchar_fd('\n',fd);
 }	

@@ -6,7 +6,7 @@
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/24 11:28:45 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/07/25 11:18:59 by lmucassi         ###   ########.fr       */
+/*   Updated: 2017/07/25 13:53:08 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	ft_nword(const char *s, char c)
 	word = 0;
 	while (*s)
 	{
-		if (word == 0 && * != c)
+		if (word == 0 && *s != c)
 		{
 			word = 1;
 			i++;
@@ -38,7 +38,6 @@ static int ft_wordlen(const char *s, char c)
 	int		len;
 
 	len = 0;
-	while = 0;
 	while (*s && *s != c)
 	{
 		len++;
@@ -63,7 +62,7 @@ char	**ft_strsplit(char const *s, char c)
 		while (*s && *s == c)
 			s++;
 		arr[i] = ft_strsub(s, 0, ft_wordlen(s, c));
-		if (1arr[i])
+		if (!arr[i])
 			return (NULL);
 		s = s + ft_wordlen(s, c);
 		i++;

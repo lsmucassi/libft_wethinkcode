@@ -6,14 +6,13 @@
 #    By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/06 15:16:59 by lmucassi          #+#    #+#              #
-#    Updated: 2017/07/22 17:37:46 by lmucassi         ###   ########.fr        #
+#    Updated: 2017/07/25 14:11:55 by lmucassi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-SRC = ft_putchar.c\
-	  ft_isalnum.c\
+SRC = ft_isalnum.c\
 	  ft_isalpha.c\
 	  ft_isdigit.c\
 	  ft_isprint.c\
@@ -45,7 +44,28 @@ SRC = ft_putchar.c\
 	  ft_memdel.c\
 	  ft_striteri.c\
 	  ft_strnew.c\
-	  ft_strdel.c
+	  ft_strdel.c\
+	  ft_strclr.c\
+	  ft_striter.c\
+	  ft_strmap.c\
+	  ft_strmapi.c\
+	  ft_strequ.c\
+	  ft_strnequ.c\
+	  ft_strsub.c\
+	  ft_strjoin.c\
+	  ft_strtrim.c\
+	  ft_strsplit.c\
+	  ft_putchar.c\
+	  ft_itoa.c\
+	  ft_putstr.c\
+	  ft_putendl.c\
+	  ft_putstr.c\
+	  ft_putnbr.c\
+	  ft_putchar_fd.c\
+	  ft_putstr_fd.c\
+	  ft_putendl_fd.c\
+	  ft_putnbr_fd.c\
+	  ft_size_base.c
 	  
 SRCO = ft_strlen.o\
 	   ft_strcpy.o\
@@ -80,7 +100,26 @@ SRCO = ft_strlen.o\
 	   ft_memdel.o\
 	   ft_striteri.o\
 	   ft_strnew.o\
-	   ft_strdel.o
+	   ft_strdel.o\
+	   ft_strclr.o\
+	   ft_striter.o\
+	   ft_strmap.o\
+	   ft_strmapi.o\
+	   ft_strequ.o\
+	   ft_strnequ.o\
+	   ft_strsub.o\
+	   ft_strjoin.o\
+	   ft_strtrim.o\
+	   ft_strsplit.o\
+	   ft_itoa.o\
+	   ft_putstr.o\
+	   ft_putendl.o\
+	   ft_putnbr.o\
+	   ft_putchar_fd.o\
+	   ft_putstr_fd.o\
+	   ft_putendl_fd.o\
+	   ft_putnbr_fd.o\
+	   ft_size_base.o
 
 CFLAGS = -Wall -Wextra -Werror
 

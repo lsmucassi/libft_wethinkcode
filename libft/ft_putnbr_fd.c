@@ -6,11 +6,11 @@
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/25 12:05:07 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/07/25 12:06:26 by lmucassi         ###   ########.fr       */
+/*   Updated: 2017/07/25 14:21:23 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.c"
+#include "libft.h"
 
 void	ft_pputnbr_fd(int n, int fd)
 {
