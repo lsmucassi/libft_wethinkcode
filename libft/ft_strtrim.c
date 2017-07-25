@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/22 16:26:34 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/07/21 10:57:05 by lmucassi         ###   ########.fr       */
+/*   Created: 2017/07/24 11:09:52 by lmucassi          #+#    #+#             */
+/*   Updated: 2017/07/24 11:27:37 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		*ft_memset(void *dest, int c, size_t n)
+char	*ft_strtrim(const char *s)
 {
+	size_t	let;
+	size_t	ret;
 	size_t	i;
 
 	i = 0;
-	if (n)
+	let = 0;
+	ret = 0;
+	while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
+		i++;
+	while (s[ret])
 	{
-		while (i < n)
+		if (s[ret] != ' '  && s[ret] != '\t' s[ret] != '\n')
 		{
-			((unsigned char *)dest)[i] = c;
-			i++;
+			ret++;
+			let = ret;
 		}
+		else
+			ret++;
 	}
-	return (dest);
+	if (s && ret == 0)
+			return (ft_strdup(""));
+	return (ft_strdup(s, i, (let - i)));
 }

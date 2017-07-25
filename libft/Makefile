@@ -6,7 +6,7 @@
 #    By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/06 15:16:59 by lmucassi          #+#    #+#              #
-#    Updated: 2017/07/21 14:21:12 by lmucassi         ###   ########.fr        #
+#    Updated: 2017/07/22 17:37:46 by lmucassi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,12 @@ SRC = ft_putchar.c\
 	  ft_memcpy.c\
 	  ft_bzero.c\
 	  ft_memset.c\
-	  ft_atoi.c
+	  ft_atoi.c\
+	  ft_memalloc.c\
+	  ft_memdel.c\
+	  ft_striteri.c\
+	  ft_strnew.c\
+	  ft_strdel.c
 	  
 SRCO = ft_strlen.o\
 	   ft_strcpy.o\
@@ -70,7 +75,12 @@ SRCO = ft_strlen.o\
 	   ft_memcpy.o\
 	   ft_bzero.o\
 	   ft_memset.o\
-	   ft_atoi.o
+	   ft_atoi.o\
+	   ft_memalloc.o\
+	   ft_memdel.o\
+	   ft_striteri.o\
+	   ft_strnew.o\
+	   ft_strdel.o
 
 CFLAGS = -Wall -Wextra -Werror
 

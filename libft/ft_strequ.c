@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/22 16:26:34 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/07/21 10:57:05 by lmucassi         ###   ########.fr       */
+/*   Created: 2017/07/24 10:19:34 by lmucassi          #+#    #+#             */
+/*   Updated: 2017/07/24 10:34:08 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		*ft_memset(void *dest, int c, size_t n)
+int		ft_strequ(const char *s1, const char *s2)
 {
-	size_t	i;
-
-	i = 0;
-	if (n)
-	{
-		while (i < n)
-		{
-			((unsigned char *)dest)[i] = c;
-			i++;
-		}
-	}
-	return (dest);
+	if (ft_strcmp(s1, s2))
+		return (1);
+	else
+		return (0);
 }
