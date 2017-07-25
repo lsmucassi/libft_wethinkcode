@@ -6,7 +6,7 @@
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/24 11:28:45 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/07/25 13:53:08 by lmucassi         ###   ########.fr       */
+/*   Updated: 2017/07/25 15:24:48 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	ft_nword(const char *s, char c)
 {
-	int i;
-	int word;
+	int		i;
+	int		word;
 
 	i = 0;
 	word = 0;
@@ -33,7 +33,7 @@ static int	ft_nword(const char *s, char c)
 	return (i);
 }
 
-static int ft_wordlen(const char *s, char c)
+static int	ft_wordlen(const char *s, char c)
 {
 	int		len;
 
@@ -46,11 +46,11 @@ static int ft_wordlen(const char *s, char c)
 	return (len);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char		**ft_strsplit(char const *s, char c)
 {
-	char **arr;
-	int nword;
-	int i;
+	char	**arr;
+	int		nword;
+	int		i;
 
 	i = 0;
 	nword = ft_nword(s, c);

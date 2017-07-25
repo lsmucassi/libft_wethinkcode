@@ -6,7 +6,7 @@
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/24 11:09:52 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/07/25 13:50:29 by lmucassi         ###   ########.fr       */
+/*   Updated: 2017/07/25 15:13:23 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strtrim(const char *s)
 		i++;
 	while (s[ret])
 	{
-		if (s[ret] != ' '  && s[ret] != '\t' && s[ret] != '\n')
+		if (s[ret] != ' ' && s[ret] != '\t' && s[ret] != '\n')
 		{
 			ret++;
 			let = ret;
@@ -34,6 +34,6 @@ char	*ft_strtrim(const char *s)
 			ret++;
 	}
 	if (s && ret == 0)
-			return (ft_strdup(""));
+		return (ft_strdup(""));
 	return (ft_strsub(s, i, (let - i)));
 }

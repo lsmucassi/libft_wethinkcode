@@ -6,7 +6,7 @@
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/24 14:48:30 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/07/25 13:55:06 by lmucassi         ###   ########.fr       */
+/*   Updated: 2017/07/25 15:27:36 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	ft_sign(int c)
 	return (0);
 }
 
-char 		*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	char	*str;
 	int		len;
@@ -37,7 +37,7 @@ char 		*ft_itoa(int n)
 	sign = ft_sign(n);
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
-	str = malloc(sizeof(char) * (len + sign +1));
+	str = malloc(sizeof(char) * (len + sign + 1));
 	if (str)
 	{
 		str = str + sign + len;

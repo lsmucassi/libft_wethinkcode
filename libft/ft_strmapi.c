@@ -6,7 +6,7 @@
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/24 10:14:03 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/07/25 14:25:40 by lmucassi         ###   ########.fr       */
+/*   Updated: 2017/07/25 15:10:42 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	{
 		while (s[i] != '\0')
 		{
-			str[i] = f(i,s[i]);
+			str[i] = f(i, s[i]);
 			i++;
 		}
 		str[i] = '\0';
