@@ -6,7 +6,7 @@
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/24 09:39:32 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/07/25 15:08:29 by lmucassi         ###   ########.fr       */
+/*   Updated: 2017/08/04 12:39:46 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 
 void	ft_strclr(char *str)
 {
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		str[i] = '\0';
-		i++;
-	}
+	if (str)
+		ft_bzero(str, ft_strlen(str));
 }

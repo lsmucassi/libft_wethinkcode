@@ -5,32 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/24 10:47:28 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/07/25 15:12:22 by lmucassi         ###   ########.fr       */
+/*   Created: 2017/08/04 13:26:16 by lmucassi          #+#    #+#             */
+/*   Updated: 2017/08/04 13:35:07 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(const char *s1, const char *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*str;
-	size_t	i;
+	size_t	len;
+	char	*new;
+	char	str;;
 
-	i = 0;
-	str = NULL;
-	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
-	if (str)
+	str = 0;
+	if (!s1)
+		s1 = &str;
+	if (!s2)
+		s2 = &str;
+	len = ft_strlen(s1) + ft_strlen(s2);
+	new = (char*)malloc(len * sizeof(*new));
+	if (new)
 	{
-		while (*s1)
-			str[i++] = *s1++;
-		while (*s2)
-			str[i++] = *s2++;
-		str[i] = '\0';
+		ft_strcpy(new, s1);
+		ft_strcpy(new + ft_strlen(s1), s2);
 	}
-	else if (s1 && !s2)
-		return (ft_strdup(s1));
-	else if (!s1 && s2)
-		return (ft_strdup(s2));
-	return (str);
+	return (new);
 }

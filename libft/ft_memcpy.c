@@ -6,7 +6,7 @@
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/21 11:28:06 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/07/21 11:36:32 by lmucassi         ###   ########.fr       */
+/*   Updated: 2017/07/31 17:04:33 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ void		*ft_memcpy(void *dest, const void *src, size_t n)
 		str1[i] = str2[i];
 		i++;
 	}
-	return (0);
+	return (dest);
 }

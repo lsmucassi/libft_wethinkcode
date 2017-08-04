@@ -6,7 +6,7 @@
 #    By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/06 15:16:59 by lmucassi          #+#    #+#              #
-#    Updated: 2017/07/25 14:11:55 by lmucassi         ###   ########.fr        #
+#    Updated: 2017/08/04 12:34:31 by lmucassi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ SRC = ft_isalnum.c\
 	  ft_bzero.c\
 	  ft_memset.c\
 	  ft_atoi.c\
+	  \
 	  ft_memalloc.c\
 	  ft_memdel.c\
 	  ft_striteri.c\
@@ -96,6 +97,7 @@ SRCO = ft_strlen.o\
 	   ft_bzero.o\
 	   ft_memset.o\
 	   ft_atoi.o\
+	   \
 	   ft_memalloc.o\
 	   ft_memdel.o\
 	   ft_striteri.o\

@@ -5,35 +5,43 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/24 11:09:52 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/07/25 15:13:23 by lmucassi         ###   ########.fr       */
+/*   Created: 2017/08/04 13:52:30 by lmucassi          #+#    #+#             */
+/*   Updated: 2017/08/04 14:05:26 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(const char *s)
+static int			ft_isspace(char c)
 {
-	size_t	let;
-	size_t	ret;
-	size_t	i;
-
-	i = 0;
-	let = 0;
-	ret = 0;
-	while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
-		i++;
-	while (s[ret])
+	if (c == ' ' ||
+		c == '\n' ||
+		c == '\t' ||
+		c == '\v' ||
+		c == '\f' ||
+		c == '\r')
 	{
-		if (s[ret] != ' ' && s[ret] != '\t' && s[ret] != '\n')
-		{
-			ret++;
-			let = ret;
-		}
-		else
-			ret++;
+		return (1);
 	}
-	if (s && ret == 0)
-		return (ft_strdup(""));
-	return (ft_strsub(s, i, (let - i)));
+	return (0);
+}
+
+char				*ft_strtrim(char const *s)
+{
+	unsigned int	i;
+	unsigned int	j;
+	char			*newstr;
+
+	if (s)
+	{
+		i = 0;
+		while (s[i] && ft_isspace(s[i]))
+			i++;
+		j = ft_strlen(s) - 1;
+		while (s[i] && ft_isspace(s[j]))
+			j--;
+		newstr = ft_strsub(s, i, j - i + 1);
+		return (newstr);
+	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/10 14:42:53 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/07/21 12:21:42 by lmucassi         ###   ########.fr       */
+/*   Updated: 2017/07/31 17:46:05 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 	{
 		c = 0;
 		item = i;
+		if (n < ft_strlen(s2))
+			return (NULL);
+		item = i;
 		while (s1[item] == s2[c] && s2[c] && s1[item])
 		{
 			item++;
@@ -35,5 +38,5 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 		i++;
 		n--;
 	}
-	return (0);
+	return (NULL);
 }

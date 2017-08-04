@@ -6,7 +6,7 @@
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/24 09:38:45 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/07/24 09:38:49 by lmucassi         ###   ########.fr       */
+/*   Updated: 2017/08/01 15:54:32 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strnew(size_t size)
 	size_t	i;
 
 	i = 0;
-	str = malloc(sizeof(char) * size + 10);
+	str = malloc(sizeof(char) * size + 1);
 	if (str)
 	{
 		while (i <= size)

@@ -5,68 +5,56 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/24 11:28:45 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/07/25 15:24:48 by lmucassi         ###   ########.fr       */
+/*   Created: 2017/08/04 13:40:34 by lmucassi          #+#    #+#             */
+/*   Updated: 2017/08/04 14:08:32 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_nword(const char *s, char c)
+static int			ft_getwordsnb(char const *s, char c)
 {
-	int		i;
-	int		word;
+	unsigned int	nb;
+	size_t			i;
 
 	i = 0;
-	word = 0;
-	while (*s)
+	nb = 0;
+	while (s && s[i])
 	{
-		if (word == 0 && *s != c)
-		{
-			word = 1;
+		while ((char)s[i] == c)
 			i++;
+		if (s[i] && (char)s[i] != c)
+			nb++;
+		while (s[i] && (char)s[i] != c)
+			i++;
+	}
+	return (nb);
+}
+
+char				**ft_strsplit(char const *s, char c)
+{
+	char			*t;
+	char			**splited;
+	size_t			k;
+
+	splited = (char**)malloc((ft_getwordsnb(s, c) + 1) * sizeof(char*));
+	t = ft_strdup(s);
+	k = 0;
+	while (t && *t)
+	{
+		while (*t == c)
+		{
+			*t = 0;
+			t++;
 		}
-		else if (word == 1 && *s == c)
-			word = 0;
-		s++;
+		if (*t && *t != c)
+		{
+			splited[k] = t;
+			k++;
+		}
+		while (*t && *t != c)
+			t++;
 	}
-	return (i);
-}
-
-static int	ft_wordlen(const char *s, char c)
-{
-	int		len;
-
-	len = 0;
-	while (*s && *s != c)
-	{
-		len++;
-		s++;
-	}
-	return (len);
-}
-
-char		**ft_strsplit(char const *s, char c)
-{
-	char	**arr;
-	int		nword;
-	int		i;
-
-	i = 0;
-	nword = ft_nword(s, c);
-	arr = (char **)malloc(sizeof(char *) * (nword + 1));
-	if (!arr)
-		return (NULL);
-	while (nword--)
-	{
-		while (*s && *s == c)
-			s++;
-		arr[i] = ft_strsub(s, 0, ft_wordlen(s, c));
-		if (!arr[i])
-			return (NULL);
-		s = s + ft_wordlen(s, c);
-		i++;
-	}
-	arr[i] = NULL;
-	return (arr);
+	splited[k] = 0;
+	return (splited);
 }
