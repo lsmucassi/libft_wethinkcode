@@ -6,7 +6,7 @@
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 13:40:34 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/08/04 14:08:32 by lmucassi         ###   ########.fr       */
+/*   Updated: 2017/08/07 14:15:01 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,26 @@ char				**ft_strsplit(char const *s, char c)
 	splited = (char**)malloc((ft_getwordsnb(s, c) + 1) * sizeof(char*));
 	t = ft_strdup(s);
 	k = 0;
-	while (t && *t)
+	if (!s || !c || !splited)
+		return (NULL);
+	else
 	{
-		while (*t == c)
+		while (t && *t)
 		{
-			*t = 0;
-			t++;
+			while (*t == c)
+			{
+				*t = 0;
+				t++;
+			}
+			if (*t && *t != c)
+			{
+				splited[k] = t;
+				k++;
+			}
+			while (*t && *t != c)
+				t++;
 		}
-		if (*t && *t != c)
-		{
-			splited[k] = t;
-			k++;
-		}
-		while (*t && *t != c)
-			t++;
 	}
-	splited[k] = 0;
+//	splited[k] = 0;
 	return (splited);
 }
