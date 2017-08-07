@@ -6,60 +6,69 @@
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 13:40:34 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/08/07 14:15:01 by lmucassi         ###   ########.fr       */
+/*   Updated: 2017/08/07 17:04:02 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int			ft_getwordsnb(char const *s, char c)
+static int		ft_parts_nr(char const *s, char c)
 {
-	unsigned int	nb;
-	size_t			i;
+	int i;
+	int cnt;
+	int	part;
 
 	i = 0;
-	nb = 0;
-	while (s && s[i])
+	cnt = 0;
+	part = 0;
+	while (s[i])
 	{
-		while ((char)s[i] == c)
-			i++;
-		if (s[i] && (char)s[i] != c)
-			nb++;
-		while (s[i] && (char)s[i] != c)
-			i++;
+		if (s[i] == c && part == 1)
+			part = 0;
+		if (s[i] != c && part == 0)
+		{
+			part = 1;
+			cnt++;
+		}
+		i++;
 	}
-	return (nb);
+	return (cnt);
 }
 
-char				**ft_strsplit(char const *s, char c)
+static int		ft_part_len(char const *s, char c, int i)
 {
-	char			*t;
-	char			**splited;
-	size_t			k;
+	int len;
 
-	splited = (char**)malloc((ft_getwordsnb(s, c) + 1) * sizeof(char*));
-	t = ft_strdup(s);
-	k = 0;
-	if (!s || !c || !splited)
-		return (NULL);
-	else
+	len = 0;
+	while (s[i] && s[i] != c)
 	{
-		while (t && *t)
-		{
-			while (*t == c)
-			{
-				*t = 0;
-				t++;
-			}
-			if (*t && *t != c)
-			{
-				splited[k] = t;
-				k++;
-			}
-			while (*t && *t != c)
-				t++;
-		}
+		len++;
+		i++;
 	}
-//	splited[k] = 0;
-	return (splited);
+	return (len);
+}
+
+char			**ft_strsplit(char const *s, char c)
+{
+	char	**map;
+	int		i;
+	int		j;
+	int		parts;
+
+	parts = ft_parts_nr(s, c);
+	if (!(map = (char**)malloc(sizeof(*map) * (parts + 1))))
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (parts > 0)
+	{
+		while (s[i] == c && s[i] != '\0')
+			i++;
+		map[j] = ft_strsub(s, i, ft_part_len(s, c, i));
+		j++;
+		i = i + ft_part_len(s, c, i);
+		parts--;
+	}
+	map[j] = 0;
+	return (map);
 }
