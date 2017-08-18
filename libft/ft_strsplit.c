@@ -6,69 +6,69 @@
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 13:40:34 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/08/07 17:04:02 by lmucassi         ###   ########.fr       */
+/*   Updated: 2017/08/18 16:15:03 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_parts_nr(char const *s, char c)
+static	int		ft_cntwd(const char *s, char c)
 {
-	int i;
-	int cnt;
-	int	part;
+	int		ct;
+	int		sbstr;
 
-	i = 0;
-	cnt = 0;
-	part = 0;
-	while (s[i])
+	sbstr = 0;
+	ct = 0;
+	while (*s != '\0')
 	{
-		if (s[i] == c && part == 1)
-			part = 0;
-		if (s[i] != c && part == 0)
+		if (sbstr == 1 && *s == c)
+			sbstr = 0;
+		if (sbstr == 0 && *s != c)
 		{
-			part = 1;
-			cnt++;
+			sbstr = 1;
+			ct++;
 		}
-		i++;
+		s++;
 	}
-	return (cnt);
+	return (ct);
 }
 
-static int		ft_part_len(char const *s, char c, int i)
+static	int		ft_lenw(const char *s, char c)
 {
 	int len;
 
 	len = 0;
-	while (s[i] && s[i] != c)
+	while (*s != c && *s != '\0')
 	{
 		len++;
-		i++;
+		s++;
 	}
 	return (len);
 }
 
 char			**ft_strsplit(char const *s, char c)
 {
-	char	**map;
-	int		i;
-	int		j;
-	int		parts;
+	char		**splt;
+	int			wrd;
+	int			i;
 
-	parts = ft_parts_nr(s, c);
-	if (!(map = (char**)malloc(sizeof(*map) * (parts + 1))))
-		return (NULL);
 	i = 0;
-	j = 0;
-	while (parts > 0)
+	if (!s || !c)
+		return (NULL);
+	wrd = ft_cntwd((const char *)s, c);
+	splt = (char **)malloc(sizeof(*splt) * (ft_cntwd((const char *)s, c) + 1));
+	if (splt == NULL)
+		return (NULL);
+	while (wrd--)
 	{
-		while (s[i] == c && s[i] != '\0')
-			i++;
-		map[j] = ft_strsub(s, i, ft_part_len(s, c, i));
-		j++;
-		i = i + ft_part_len(s, c, i);
-		parts--;
+		while (*s == c && *s != '\0')
+			s++;
+		splt[i] = ft_strsub((const char *)s, 0, ft_lenw((const char *)s, c));
+		if (splt[i] == NULL)
+			return (NULL);
+		s = s + ft_lenw(s, c);
+		i++;
 	}
-	map[j] = 0;
-	return (map);
+	splt[i] = NULL;
+	return (splt);
 }
