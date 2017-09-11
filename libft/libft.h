@@ -6,7 +6,7 @@
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/31 14:21:45 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/07/31 17:54:00 by lmucassi         ###   ########.fr       */
+/*   Updated: 2017/09/11 11:34:00 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_strequ(char const *s1, char const *s2);
 int		ft_strnequ(char const *s1, char const *s2, size_t n);
 int		ft_size_base(int c, int base);
+int		ft_isspace(char c);
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
 size_t	ft_strlen(const char *str);

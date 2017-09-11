@@ -6,7 +6,7 @@
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/02 16:52:26 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/07/31 17:40:48 by lmucassi         ###   ########.fr       */
+/*   Updated: 2017/09/11 09:44:40 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strstr(const char *s1, const char *s2)
 {
 	size_t	n;
 
-	n  = ft_strlen(s2);
+	n = ft_strlen(s2);
 	if (!*s2)
 		return ((char *)s1);
 	while (*s1)

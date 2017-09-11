@@ -6,7 +6,7 @@
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 13:26:16 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/08/04 13:35:07 by lmucassi         ###   ########.fr       */
+/*   Updated: 2017/09/11 09:47:26 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	size_t	len;
 	char	*new;
-	char	str;;
+	char	str;
 
 	str = 0;
 	if (!s1)
