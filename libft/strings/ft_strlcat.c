@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/15 16:42:03 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/07/21 11:22:53 by lmucassi         ###   ########.fr       */
+/*   Created: 2017/07/14 12:36:59 by lmucassi          #+#    #+#             */
+/*   Updated: 2017/09/14 14:35:01 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t len)
+size_t		ft_strlcat(char *dest, const char *src, size_t size)
 {
-	unsigned char	*str1;
-	unsigned char	*str2;
-	size_t			i;
+	size_t i;
+	size_t c;
+	size_t res;
 
 	i = 0;
-	str1 = ((unsigned char *)dest);
-	str2 = ((unsigned char *)src);
-	if (str1 > str2)
+	c = 0;
+	res = ft_strlen(dest) + ft_strlen(src);
+	while (dest[i] != '\0' && i < size)
+		i++;
+	if ((size - i) == 0)
+		return (i + ft_strlen(src));
+	while (i != (size - 1) && src[c] != '\0')
 	{
-		while (i < len)
-		{
-			str1[len - 1] = str2[len - 1];
-			len--;
-		}
-		return (dest);
+		dest[i] = src[c];
+		i++;
+		c++;
 	}
-	else
-		while (i < len)
-		{
-			str1[i] = str2[i];
-			i++;
-		}
-	return (dest);
+	dest[i] = '\0';
+	return (res);
 }

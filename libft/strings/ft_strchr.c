@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/14 12:36:59 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/07/21 12:29:38 by lmucassi         ###   ########.fr       */
+/*   Created: 2017/06/06 14:13:46 by lmucassi          #+#    #+#             */
+/*   Updated: 2017/09/14 14:38:32 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlcat(char *dest, const char *src, size_t size)
+char	*ft_strchr(const char *s, int c)
 {
-	size_t i;
-	size_t c;
-	size_t res;
+	char a;
 
-	i = 0;
-	c = 0;
-	res = ft_strlen(dest) + ft_strlen(src);
-	while (dest[i] != 0 && i < size)
-		i++;
-	if ((size - i) == 0)
-		return (i + ft_strlen(src));
-	while (i != (size - 1) && src[c] != 0)
+	a = c;
+	while (*s != a)
 	{
-		dest[i] = src[c];
-		i++;
-		c++;
+		if (*s == '\0')
+			return (0);
+		s++;
 	}
-	dest[i] = 0;
-	return (res);
+	return (char *)s;
 }

@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/02 17:11:46 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/06/07 17:33:16 by lmucassi         ###   ########.fr       */
+/*   Created: 2017/06/02 16:52:26 by lmucassi          #+#    #+#             */
+/*   Updated: 2017/09/14 14:42:43 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *str, int c)
+char	*ft_strstr(const char *s1, const char *s2)
 {
-	int i;
+	size_t	n;
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	while (str[i] != (char)c && i >= 0)
-		i--;
-	if (str[i] != (char)c)
-		return (0);
-	return ((char *)str + i);
+	n = ft_strlen(s2);
+	if (!*s2)
+		return ((char *)s1);
+	while (*s1)
+	{
+		if (ft_strncmp(s1, s2, n) == 0)
+			return ((char *)s1);
+		s1++;
+	}
+	return (NULL);
 }

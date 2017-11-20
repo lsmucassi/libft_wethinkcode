@@ -6,77 +6,105 @@
 #    By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/06 15:16:59 by lmucassi          #+#    #+#              #
-#    Updated: 2017/09/11 10:27:32 by lmucassi         ###   ########.fr        #
+#    Updated: 2017/11/20 16:18:41 by lmucassi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-SRC = ft_isalnum.c	ft_isalpha.c	ft_isdigit.c	ft_isprint.c\
-	  ft_strcmp.c	ft_strncmp.c	ft_strcpy.c		ft_strncpy.c\
-	  ft_strlen.c	ft_strstr.c		ft_tolower.c	ft_toupper.c\
-	  ft_strdup.c	ft_strrchr.c	ft_strchr.c		ft_strnstr.c\
-	  ft_strlcat.c	ft_isascii.c	ft_strncat.c	ft_strcat.c\
-	  ft_memcmp.c	ft_memchr.c		ft_memmove.c	ft_memccpy.c\
-	  ft_memcpy.c	ft_bzero.c		ft_memset.c		ft_atoi.c\
-	  \
-	  ft_memalloc.c		ft_memdel.c		ft_striteri.c	ft_strnew.c\
-	  ft_strdel.c		ft_strclr.c		ft_striter.c	ft_strmap.c\
-	  ft_strmapi.c		ft_strequ.c		ft_strnequ.c	ft_strsub.c\
-	  ft_strjoin.c		ft_strtrim.c	ft_strsplit.c	ft_putchar.c\
-	  ft_itoa.c			ft_putstr.c		ft_putendl.c	ft_putstr.c\
-	  ft_putnbr.c 		ft_putchar_fd.c ft_putstr_fd.c 	ft_putendl_fd.c\
-	  ft_putnbr_fd.c\
-	  \
-	  ft_isspace.c	ft_size_base.c
+INC_PATH =./inc/
 
-SRCO = ft_strlen.o	ft_strcpy.o		ft_strncpy.o	ft_strstr.o\
-	   ft_strcmp.o  ft_strncmp.o	ft_isalpha.o	ft_isdigit.o\
-	   ft_isalnum.o	ft_isprint.o	ft_toupper.o	ft_tolower.o\
-	   ft_putchar.o	ft_strdup.o		ft_strrchr.o	ft_strchr.o\
-	   ft_strnstr.o	ft_strlcat.o	ft_isascii.o	ft_strncat.o\
-	   ft_strcat.o	ft_memcmp.o		ft_memchr.o		ft_memmove.o\
-	   ft_memccpy.o ft_memcpy.o		ft_bzero.o		ft_memset.o\
-	   ft_atoi.o\
-	   \
-	   ft_memalloc.o	ft_memdel.o		ft_striteri.o	ft_strnew.o\
-	   ft_strdel.o		ft_strclr.o		ft_striter.o	ft_strmap.o\
-	   ft_strmapi.o		ft_strequ.o		ft_strnequ.o	ft_strsub.o\
-	   ft_strjoin.o		ft_strtrim.o	ft_strsplit.o	ft_itoa.o\
-	   ft_putstr.o		ft_putendl.o	ft_putnbr.o		ft_putchar_fd.o\
-	   ft_putstr_fd.o	ft_putendl_fd.o	ft_putnbr_fd.o\
-	   \
-	   ft_isspace.o		 ft_size_base.o
+INC = -I $(INC_PATH)
+
+#---------------------------#
+# 		ceating paths 		#
+#---------------------------#
+SRC_PATH_MEM 	= ./memory/
+SRC_PATH_STR 	= ./strings/
+SRC_PATH_DIS	= ./display/
+SRC_PATH_AMEM	= ./addmemory/
+SRC_PATH_NUM	= ./basicnum/
+SRC_PATH_ASTR	= ./addstrings/
+SRC_PATH_EXT	= ./extra/
+
+#-----------------------------------#
+#		creating function groups	#
+#-----------------------------------#
+SRC_MEM		= ft_bzero.c ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c\
+			  ft_memmove.c ft_memset.c
+SRC_STR		= ft_strcat.c ft_strcmp.c ft_strdup.c ft_strlen.c ft_strncmp.c\
+			  ft_strnstr.c ft_strstr.c ft_strchr.c ft_strcpy.c ft_strlcat.c\
+			  ft_strncat.c ft_strncpy.c ft_strrchr.c
+SRC_DIS		= ft_itoa.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c\
+			  ft_putstr_fd.c ft_putchar.c ft_putendl.c ft_putnbr.c ft_putstr.c
+SRC_AMEM	= ft_memalloc.c ft_memdel.c
+SRC_NUM		= ft_atoi.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c\
+			  ft_isprint.c ft_tolower.c ft_toupper.c
+SRC_ASTR	= ft_strclr.c ft_strequ.c ft_striteri.c ft_strmap.c ft_strnequ.c\
+			  ft_strsplit.c ft_strtrim.c ft_strdel.c ft_striter.c ft_strjoin.c\
+			  ft_strmapi.c ft_strnew.c ft_strsub.c
+SRC_EXT		= ft_size_base.c ft_isspace.c
+
+#-----------------------------------------------#
+#		compiling one source					#
+#-----------------------------------------------#
+SRC	 = 	$(addprefix $(SRC_PATH_MEM), $(SRC_MEM))
+SRC	 += $(addprefix $(SRC_PATH_STR), $(SRC_STR))
+SRC	 += $(addprefix $(SRC_PATH_DIS), $(SRC_DIS))
+SRC	 += $(addprefix $(SRC_PATH_AMEM), $(SRC_AMEM))
+SRC	 += $(addprefix $(SRC_PATH_NUM), $(SRC_NUM))
+SRC	 += $(addprefix $(SRC_PATH_ASTR), $(SRC_ASTR))
+SRC	 += $(addprefix $(SRC_PATH_EXT), $(SRC_EXT))
+
+#-----------------------------------------------#
+#		creating objects						#
+#-----------------------------------------------#
+OBJ  =  $(patsubst %.c,%.o,$(SRC_MEM))
+OBJ  += $(patsubst %.c,%.o,$(SRC_STR))
+OBJ  += $(patsubst %.c,%.o,$(SRC_DIS))
+OBJ  += $(patsubst %.c,%.o,$(SRC_AMEM))
+OBJ  += $(patsubst %.c,%.o,$(SRC_NUM))
+OBJ  += $(patsubst %.c,%.o,$(SRC_ASTR))
+OBJ  += $(patsubst %.c,%.o,$(SRC_EXT))
 
 CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
 $(NAME):
-	gcc -c $(CFLAGS) $(SRC)
-	ar rc $(NAME) $(SRCO)
-	ranlib $(NAME)
+	@echo "\033[32mCompiling library...\033[00m"
+	@gcc -c $(CFLAGS) $(SRC) $(INC)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
+	@make clean
+	@echo "\033[33mDone!!\033[00m"
 
 clean:
-	rm -f $(SRCO)
+	@echo "\033[31mRemoving objects\033[00m"
+	@rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	@echo "\033[31mRemoving libft.a\033[00m"
+	@rm -f $(NAME)
+	@echo "\033[33mDone!!\033[00m"
 
 re: fclean all
 
 norm:
-	@echo "Norming Memory Functions"
-	@norminette ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c ft_memcmp.c
-	@echo "\nNorming String Functions"
-	@norminette ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c ft_strcat.c ft_strncat.c ft_strlcat.c ft_strchr.c ft_strrchr.c ft_strstr.c ft_strnstr.c ft_strcmp.c ft_strncmp.c
-	@echo "\nNorming Basic Number Functions"
-	@norminette ft_atoi.c ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_tolower.c ft_toupper.c
-	@echo "\nNorming Additional Memory Functions"
-	@norminette ft_memalloc.c ft_memdel.c
-	@echo "\nNorming Additional String Functions"
-	@norminette ft_strnew.c ft_strdel.c ft_strclr.c ft_striter.c ft_striteri.c ft_strmap.c ft_strmapi.c ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c ft_strtrim.c ft_strsplit.c
-	@echo "\nNorming Display Functions"
-	@norminette ft_itoa.c ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c 
-	@echo "\nNornimg Extra Functions"
-	@norminette ft_isspace.c ft_size_base.c
+	@echo "\033[32mNorming Memory Functions...\033[00m"
+	@norminette memory
+	@echo "\n\033[32mNorming String Functions...\033[00m"
+	@norminette strings/
+	@echo "\n\033[32mNorming Basic Number Functions...\033[00m"
+	@norminette basicnum/
+	@echo "\n\033[32mNorming Additional Memory Functions...\033[00m"
+	@norminette addmemory/
+	@echo "\n\033[32mNorming Additional String Functions...\033[00m"
+	@norminette addstrings/ 
+	@echo "\n\033[32mNorming Display Functions...\033[00m"
+	@norminette display/ 
+	@echo "\n\033[32mNornimg Extra Functions\033[00m"
+	@norminette extra
+	@echo "\033[32mDone!!\033[00m"
+
+.PHONY:	clean fclean all re

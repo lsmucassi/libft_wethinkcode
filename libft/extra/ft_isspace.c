@@ -1,42 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/10 14:42:53 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/07/31 17:46:05 by lmucassi         ###   ########.fr       */
+/*   Created: 2017/09/11 09:47:45 by lmucassi          #+#    #+#             */
+/*   Updated: 2017/11/20 12:29:59 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+int		ft_isspace(char c)
 {
-	size_t i;
-	size_t c;
-	size_t item;
-
-	i = 0;
-	if (!*s2)
-		return ((char *)s1);
-	while (s1[i] && n > 0)
-	{
-		c = 0;
-		item = i;
-		if (n < ft_strlen(s2))
-			return (NULL);
-		item = i;
-		while (s1[item] == s2[c] && s2[c] && s1[item])
-		{
-			item++;
-			c++;
-		}
-		if (s2[c] == '\0')
-			return ((char *)s1 + i);
-		i++;
-		n--;
-	}
-	return (NULL);
+	return ((c == 32 || (c >= 9 && c <= 13)) ? 1 : 0);
 }

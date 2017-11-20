@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/21 11:28:06 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/07/31 17:04:33 by lmucassi         ###   ########.fr       */
+/*   Created: 2017/07/15 16:42:03 by lmucassi          #+#    #+#             */
+/*   Updated: 2017/09/14 12:52:12 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t len)
 {
-	size_t	i;
-	char	*str1;
-	char	*str2;
+	unsigned char	*str1;
+	unsigned char	*str2;
+	size_t			i;
 
 	i = 0;
-	str1 = (char *)dest;
-	str2 = (char *)src;
-	while (i < n)
+	str1 = ((unsigned char *)dest);
+	str2 = ((unsigned char *)src);
+	if (str1 > str2)
 	{
-		str1[i] = str2[i];
-		i++;
+		while (i < len)
+		{
+			str1[len - 1] = str2[len - 1];
+			len--;
+		}
+		return (dest);
 	}
+	else
+		while (i < len)
+		{
+			str1[i] = str2[i];
+			i++;
+		}
 	return (dest);
 }

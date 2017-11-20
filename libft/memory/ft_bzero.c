@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmucassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/15 15:20:45 by lmucassi          #+#    #+#             */
-/*   Updated: 2017/07/15 15:46:44 by lmucassi         ###   ########.fr       */
+/*   Created: 2017/07/21 11:23:00 by lmucassi          #+#    #+#             */
+/*   Updated: 2017/09/14 12:08:47 by lmucassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncat(char *dest, const char *src, size_t n)
+void		ft_bzero(void *str, size_t n)
 {
-	size_t i;
-	size_t len;
+	size_t	i;
 
 	i = 0;
-	len = ft_strlen(dest);
-	while (src[i] != '\0' && i < n)
+	while (i < n)
 	{
-		dest[len + i] = src[i];
+		((char *)str)[i] = 0;
 		i++;
 	}
-	dest[len + i] = '\0';
-	return (dest);
 }
